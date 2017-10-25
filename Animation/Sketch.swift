@@ -8,20 +8,27 @@ class Sketch : NSObject {
     
     // Position of circle
     var x : Int
+    var y : Int
     
     // Change in position
     var dx : Int // Difference in x
+    var dy : Int // Difference in y
+    
     // This function runs once
     override init() {
         
         // Create canvas object – specify size
-        canvas = Canvas(width: 500, height: 500)
+        canvas = Canvas(width: 960, height: 540)
         
         // Set starting position
-        x = 25
+        x = random(from: 60, toButNotIncluding: 900)
+        y = random(from: 40, toButNotIncluding: 500)
         
         // Set the diference for x
-        dx = 2
+        dx = 1
+        
+        // Set the diference for y
+        dy = 1
     }
     
     // Runs in a loop, forever, to create the animated effect
@@ -29,24 +36,34 @@ class Sketch : NSObject {
         
         // clear background
         canvas.fillColor = Color.white
-        canvas.drawRectangle(bottomLeftX: 0, bottomLeftY: 0, width: 500, height: 500)
+        canvas.drawRectangle(bottomLeftX: 0, bottomLeftY: 0, width: 960, height: 540)
         
         // Change position
         x += dx
+        y += dy
         
         // Check the position and reverse couse if we go off the right edge off screen
-        if x > 475 {
-            dx = -2
+        if x > Int(858.5) {
+            dx = -1
         }
         
         // Check the position and reverse couse if we go off the left edge off screen
-        if x < 25 {
-            dx = 2
+        if x < Int(101.5) {
+            dx = 1
         }
         
+        // Check the position and reverse couse if we go off the top edge off screen
+        if y > 490 {
+            dy = -1
+        }
+        
+        // Check the position and reverse couse if we go off the bottom edge off screen
+        if y < 50 {
+            dy = 1
+        }
         // Draw an ellipse in the middle of the canvas
         canvas.fillColor = Color.black
-        canvas.drawRectangle(centreX: x, centreY: 250, width: 50, height: 50)
+        canvas.drawEllipse(centreX: x, centreY: y, width: 203, height: 100)
         
     }
     
