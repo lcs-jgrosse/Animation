@@ -38,6 +38,7 @@ class Sketch : NSObject {
         canvas.fillColor = Color.white
         canvas.drawRectangle(bottomLeftX: 0, bottomLeftY: 0, width: 960, height: 540)
         
+        
         // Change position
         x += dx
         y += dy
