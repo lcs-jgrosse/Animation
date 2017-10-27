@@ -9,10 +9,10 @@ class Sketch : NSObject {
     // Position of circle
     var xtr : Int
     var ytr : Int
-    var xbl : Int
-    var ybl : Int
     var xtl : Int
     var ytl : Int
+    var xbl : Int
+    var ybl : Int
     var xbr : Int
     var ybr : Int
     
@@ -25,10 +25,10 @@ class Sketch : NSObject {
         // Set starting position
         xtr = 250
         ytr = 250
-        xbl = 250
-        ybl = 250
         xtl = 250
         ytl = 250
+        xbl = 250
+        ybl = 250
         xbr = 250
         ybr = 250
         
@@ -40,10 +40,10 @@ class Sketch : NSObject {
         // Change position
         xtr += 1
         ytr += 1
+        xtl += -1
+        ytl += 1
         xbl += -1
         ybl += -1
-        xtl += -1
-        ytr += 1
         xbr += 1
         ybr += -1
         
